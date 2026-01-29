@@ -25,7 +25,7 @@ for person_name in os.listdir(dataset_path):
         # Load image
         image = cv2.imread(image_path)
         if image is None:
-            print(f"❌ Could not read {image_path}")
+            print(f"Could not read {image_path}")
             continue
 
         rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -35,7 +35,7 @@ for person_name in os.listdir(dataset_path):
         encodings = face_recognition.face_encodings(rgb, boxes)
 
         if len(encodings) == 0:
-            print(f"❌ No face found in {image_path}")
+            print(f"No face found in {image_path}")
             continue
 
         # Save first encoding and name
@@ -47,5 +47,5 @@ data = {"encodings": known_encodings, "names": known_names}
 with open(encodings_file, "wb") as f:
     pickle.dump(data, f)
 
-print(f"✅ Encodings saved to {encodings_file}")
+print(f"Encodings saved to {encodings_file}")
 print(f"Total faces encoded: {len(known_encodings)}")
