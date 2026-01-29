@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.pkl
+dataset/registered_faces/
+dataset/encodings.pkl
+.env
