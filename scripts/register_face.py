@@ -15,18 +15,18 @@ print("Saving images to:", save_path)
 # Step 3: Open webcam
 cap = cv2.VideoCapture(0)
 if not cap.isOpened():
-    print("❌ Cannot open camera")
+    print("Cannot open camera")
     exit()
 
-print("📸 Press 'C' to capture image")
-print("❌ Press 'Q' to quit")
+print("Press 'C' to capture image")
+print("Press 'Q' to quit")
 
 count = 0
 
 while True:
     ret, frame = cap.read()
     if not ret:
-        print("❌ Camera error")
+        print("Camera error")
         break
 
     # Show video frame
@@ -39,7 +39,7 @@ while True:
     if key == ord('c') or key == 67:
         img_path = os.path.join(save_path, f"img_{count}.jpg")
         cv2.imwrite(img_path, frame)
-        print(f"✅ Image saved: {img_path}")
+        print(f"Image saved: {img_path}")
         count += 1
 
     # Quit if 'Q' or 'q' is pressed
@@ -50,4 +50,4 @@ while True:
 cap.release()
 cv2.destroyAllWindows()
 
-print(f"🎉 Registration complete. Total images saved: {count}")
+print(f"Registration complete. Total images saved: {count}")
